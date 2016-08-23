@@ -1,0 +1,13 @@
+# importing libraries
+from pip._vendor import requests
+
+# displayed the dictionary
+t = {"token": "aef3948197c5d706d648c4cafdc623ef"}
+solution = requests.post('http://challenge.code2040.org/api/haystack', json=t)
+sol = solution.content
+print(sol)
+
+#finding the needle in the haystack
+
+
+# validating the solution
