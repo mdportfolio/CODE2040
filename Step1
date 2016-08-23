@@ -6,7 +6,7 @@ from pip._vendor import requests
 # start of the HTTP request
 request_body = {"token": "aef3948197c5d706d648c4cafdc623ef", "github": "https://github.com/mdportfolio/CODE2040.git"} #string in body of HTTP request
 
-r = requests.post('http://challenge.code2040.org/api/register', json=request_body) #POST request
+answer = requests.post('http://challenge.code2040.org/api/register', json=request_body) #POST request
 
-print (r)
+print (answer)
 #end of HTTP request
