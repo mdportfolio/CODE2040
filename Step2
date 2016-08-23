@@ -1,0 +1,15 @@
+#language in python
+
+# importing libraries
+from pip._vendor import requests
+# start of the HTTP request
+request_body = {"token": "aef3948197c5d706d648c4cafdc623ef"} #string in body of HTTP request
+answer = requests.post('http://challenge.code2040.org/api/reverse', json=request_body) #POST request
+material = answer.content
+print (material)  #end of HTTP request
+
+# reverse string from request
+s = "sglfzitx"[::-1]
+r_body = {"token": "aef3948197c5d706d648c4cafdc623ef", "string": s}
+answer_two = requests.post('http://challenge.code2040.org/api/reverse/validate', json=r_body)
+print(answer_two)
