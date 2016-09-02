@@ -1,1 +1,9 @@
+# importing libraries
+from pip._vendor import requests
+import json
+
+t = {"token": "aef3948197c5d706d648c4cafdc623ef"}
+answer = requests.post('http://challenge.code2040.org/api/prefix', json=t)
+sol = answer.content
+print(sol)
 
