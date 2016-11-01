@@ -8,6 +8,13 @@ sol = solution.content
 print(sol)
 
 #finding the needle in the haystack
-
+d = json.dumps(sol)
+diction = solution.json()
+haystack = diction['haystack']
+n = diction['needle']
+needle = haystack.index(n)
 
 # validating the solution
+token_needle = {"token":"aef3948197c5d706d648c4cafdc623ef","needle": needle}
+s = requests.post("http://challenge.code2040.org/api/haystack/validate", data=token_needle)
+print (s)
