@@ -1,1 +1,34 @@
 
+# importing libraries
+from pip._vendor import requests
+import json
+import datetime
+import re
+
+
+token = {"token": "aef3948197c5d706d648c4cafdc623ef"}
+response = requests.post('http://challenge.code2040.org/api/dating', json=token)
+solution = response.content
+print(solution)
+
+dates = json.dumps(solution)
+year = dates[18:22]
+month = dates[23:25]
+day = dates[26:28]
+hour = dates[29:31]
+minute =dates[32:34]
+second= dates[35:37]
+ms = dates[54:]
+millisec = re.sub('}"',"",ms)
+
+date = datetime.datetime(int(year), int(month),  int(day),  int(hour),  int(minute),  int(second))
+interval = int(millisec)
+#Create the new time with the updated number of seconds
+new_date = date + datetime.timedelta(seconds=interval)
+
+#ISO format
+datestamp = new_date.isoformat() + "Z"
+
+token_date = {"token":"aef3948197c5d706d648c4cafdc623ef","datestamp":datestamp}
+r = requests.post("http://challenge.code2040.org/api/dating/validate", data=token_date)
+print (r)
