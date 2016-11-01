@@ -8,7 +8,6 @@ sol = solution.content
 print(sol)
 
 #finding the needle in the haystack
-d = json.dumps(sol)
 diction = solution.json()
 haystack = diction['haystack']
 n = diction['needle']
