@@ -7,3 +7,16 @@ answer = requests.post('http://challenge.code2040.org/api/prefix', json=t)
 sol = answer.content
 print(sol)
 
+lists = answer.json()
+prefix = lists["prefix"]
+a = lists["array"]
+array = []
+for element in a:
+    if not element.startswith(prefix):
+        array.append(element)
+
+#posting to website
+token_array = {"token":"aef3948197c5d706d648c4cafdc623ef","array": array}
+res = requests.post("http://challenge.code2040.org/api/prefix/validate", json=token_array)
+print (res)
+
